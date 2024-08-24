@@ -1,7 +1,7 @@
 const tweetsData = require('../data/tweetsData');
 
 const listTweets = (request, response) => {
-    response.json(tweetsData); // Retornar la lista de tweets
+    response.json(tweetsData); 
 };
 
 // Publicar un nuevo tweet
