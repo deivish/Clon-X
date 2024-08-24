@@ -1,16 +1,16 @@
-const register = [
-    {
-        id: new Date().getMilliseconds(),
-        user: "Camilo",
-        gmail: "camilo@gmail.com",
-        password: "87367b 3hb j"
-    }
-]
+const { validationResult } = require("express-validator");
 
-const listRegister = (request, response) => {
-    response.json(register);
-}
+const registerUser = (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
+
+    res.status(201).json({
+        msg: "Usuario registrado exitosamente",
+    });
+};
 
 module.exports = {
-    listRegister
-}
+    registerUser,
+};
